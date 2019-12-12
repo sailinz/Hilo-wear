@@ -19,6 +19,24 @@
 		030F7CF32375CC070095B8D7 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030F7CF22375CC070095B8D7 /* ComplicationController.swift */; };
 		030F7CF52375CC070095B8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 030F7CF42375CC070095B8D7 /* Assets.xcassets */; };
 		030F7CF82375CC070095B8D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 030F7CF72375CC070095B8D7 /* Preview Assets.xcassets */; };
+		0397C8202395B77E006F0047 /* Prototype1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397C81F2395B77E006F0047 /* Prototype1.swift */; };
+		0397C8222395B78A006F0047 /* Prototype2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397C8212395B78A006F0047 /* Prototype2.swift */; };
+		0397C82523969698006F0047 /* ClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397C82423969698006F0047 /* ClockModel.swift */; };
+		0397C827239696A3006F0047 /* ClockMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397C826239696A3006F0047 /* ClockMarks.swift */; };
+		0397C829239696B9006F0047 /* ClockIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397C828239696B9006F0047 /* ClockIndicator.swift */; };
+		03CECCA82396C3C800F4857A /* ClockLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CECCA72396C3C800F4857A /* ClockLabels.swift */; };
+		03CECCAD2398609300F4857A /* WedgeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CECCAC2398609300F4857A /* WedgeModel.swift */; };
+		03CECCAF2398626800F4857A /* WedgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CECCAE2398626800F4857A /* WedgeView.swift */; };
+		03CECCB1239A85C200F4857A /* OutdoorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CECCB0239A85C200F4857A /* OutdoorValue.swift */; };
+		03D2CC0A239553610057FCD4 /* ScenarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D2CC09239553610057FCD4 /* ScenarioModel.swift */; };
+		03D2CC0E2395573C0057FCD4 /* Prototype0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D2CC0D2395573C0057FCD4 /* Prototype0.swift */; };
+		03E4D5E2239E89CC00721768 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D5E1239E89CC00721768 /* CloudKit.framework */; };
+		03E4D5E4239E8AE300721768 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D5E3239E8AE300721768 /* CoreData.framework */; };
+		03E4D5E8239E8E6900721768 /* app-state.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D5E6239E8E6900721768 /* app-state.xcdatamodeld */; };
+		03E4D5EB239E904D00721768 /* Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D5E9239E904D00721768 /* Entity+CoreDataClass.swift */; };
+		03E4D5EC239E904D00721768 /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D5EA239E904D00721768 /* Entity+CoreDataProperties.swift */; };
+		03E4D5EE239EE52200721768 /* CloudkitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D5ED239EE52200721768 /* CloudkitHelper.swift */; };
+		03E4D5F2239EE94800721768 /* UserReaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D5F1239EE94800721768 /* UserReaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +98,26 @@
 		030F7CF72375CC070095B8D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		030F7CF92375CC070095B8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		030F7CFA2375CC070095B8D7 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		0397C81F2395B77E006F0047 /* Prototype1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prototype1.swift; sourceTree = "<group>"; };
+		0397C8212395B78A006F0047 /* Prototype2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prototype2.swift; sourceTree = "<group>"; };
+		0397C82423969698006F0047 /* ClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockModel.swift; sourceTree = "<group>"; };
+		0397C826239696A3006F0047 /* ClockMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockMarks.swift; sourceTree = "<group>"; };
+		0397C828239696B9006F0047 /* ClockIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockIndicator.swift; sourceTree = "<group>"; };
+		03CECCA72396C3C800F4857A /* ClockLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockLabels.swift; sourceTree = "<group>"; };
+		03CECCAC2398609300F4857A /* WedgeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WedgeModel.swift; sourceTree = "<group>"; };
+		03CECCAE2398626800F4857A /* WedgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WedgeView.swift; sourceTree = "<group>"; };
+		03CECCB0239A85C200F4857A /* OutdoorValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorValue.swift; sourceTree = "<group>"; };
+		03CECCB6239E7C5500F4857A /* Hilo-iwatch-1 WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Hilo-iwatch-1 WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		03CECCB8239E7D2400F4857A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		03D2CC09239553610057FCD4 /* ScenarioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioModel.swift; sourceTree = "<group>"; };
+		03D2CC0D2395573C0057FCD4 /* Prototype0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prototype0.swift; sourceTree = "<group>"; };
+		03E4D5E1239E89CC00721768 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		03E4D5E3239E8AE300721768 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		03E4D5E7239E8E6900721768 /* app-state.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "app-state.xcdatamodel"; sourceTree = "<group>"; };
+		03E4D5E9239E904D00721768 /* Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		03E4D5EA239E904D00721768 /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		03E4D5ED239EE52200721768 /* CloudkitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitHelper.swift; sourceTree = "<group>"; };
+		03E4D5F1239EE94800721768 /* UserReaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E4D5E4239E8AE300721768 /* CoreData.framework in Frameworks */,
+				03E4D5E2239E89CC00721768 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +139,7 @@
 				030F7CD82375CC060095B8D7 /* Hilo-iwatch-1 WatchKit App */,
 				030F7CE72375CC070095B8D7 /* Hilo-iwatch-1 WatchKit Extension */,
 				030F7CD12375CC060095B8D7 /* Products */,
+				03CECCB7239E7D2400F4857A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,11 +166,15 @@
 		030F7CE72375CC070095B8D7 /* Hilo-iwatch-1 WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				030F7CE82375CC070095B8D7 /* ContentView.swift */,
+				03E4D5E9239E904D00721768 /* Entity+CoreDataClass.swift */,
+				03E4D5EA239E904D00721768 /* Entity+CoreDataProperties.swift */,
+				03E4D5E5239E8E2F00721768 /* Data */,
+				03CECCB6239E7C5500F4857A /* Hilo-iwatch-1 WatchKit Extension.entitlements */,
+				03D2CC08239552760057FCD4 /* Model */,
+				03D2CC07239552610057FCD4 /* Views */,
 				030F7CEA2375CC070095B8D7 /* HostingController.swift */,
 				030F7CEC2375CC070095B8D7 /* ExtensionDelegate.swift */,
 				030F7CEE2375CC070095B8D7 /* NotificationController.swift */,
-				030F7CF02375CC070095B8D7 /* NotificationView.swift */,
 				030F7CF22375CC070095B8D7 /* ComplicationController.swift */,
 				030F7CF42375CC070095B8D7 /* Assets.xcassets */,
 				030F7CF92375CC070095B8D7 /* Info.plist */,
@@ -145,6 +190,69 @@
 				030F7CF72375CC070095B8D7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0397C8232396964C006F0047 /* prototype0 */ = {
+			isa = PBXGroup;
+			children = (
+				0397C82423969698006F0047 /* ClockModel.swift */,
+				0397C826239696A3006F0047 /* ClockMarks.swift */,
+				0397C828239696B9006F0047 /* ClockIndicator.swift */,
+				03CECCA72396C3C800F4857A /* ClockLabels.swift */,
+				03CECCB0239A85C200F4857A /* OutdoorValue.swift */,
+			);
+			path = prototype0;
+			sourceTree = "<group>";
+		};
+		03CECCA923985B8600F4857A /* prototype2 */ = {
+			isa = PBXGroup;
+			children = (
+				03CECCAC2398609300F4857A /* WedgeModel.swift */,
+				03CECCAE2398626800F4857A /* WedgeView.swift */,
+			);
+			path = prototype2;
+			sourceTree = "<group>";
+		};
+		03CECCB7239E7D2400F4857A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03E4D5E3239E8AE300721768 /* CoreData.framework */,
+				03E4D5E1239E89CC00721768 /* CloudKit.framework */,
+				03CECCB8239E7D2400F4857A /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		03D2CC07239552610057FCD4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				030F7CE82375CC070095B8D7 /* ContentView.swift */,
+				030F7CF02375CC070095B8D7 /* NotificationView.swift */,
+				03D2CC0D2395573C0057FCD4 /* Prototype0.swift */,
+				0397C81F2395B77E006F0047 /* Prototype1.swift */,
+				0397C8212395B78A006F0047 /* Prototype2.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		03D2CC08239552760057FCD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0397C8232396964C006F0047 /* prototype0 */,
+				03CECCA923985B8600F4857A /* prototype2 */,
+				03D2CC09239553610057FCD4 /* ScenarioModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03E4D5E5239E8E2F00721768 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				03E4D5E6239E8E6900721768 /* app-state.xcdatamodeld */,
+				03E4D5ED239EE52200721768 /* CloudkitHelper.swift */,
+				03E4D5F1239EE94800721768 /* UserReaction.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,12 +383,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0397C8222395B78A006F0047 /* Prototype2.swift in Sources */,
+				0397C827239696A3006F0047 /* ClockMarks.swift in Sources */,
 				030F7CEB2375CC070095B8D7 /* HostingController.swift in Sources */,
+				0397C8202395B77E006F0047 /* Prototype1.swift in Sources */,
 				030F7CE92375CC070095B8D7 /* ContentView.swift in Sources */,
+				03CECCA82396C3C800F4857A /* ClockLabels.swift in Sources */,
+				0397C82523969698006F0047 /* ClockModel.swift in Sources */,
 				030F7CEF2375CC070095B8D7 /* NotificationController.swift in Sources */,
+				03E4D5EB239E904D00721768 /* Entity+CoreDataClass.swift in Sources */,
+				03CECCAD2398609300F4857A /* WedgeModel.swift in Sources */,
+				03E4D5EC239E904D00721768 /* Entity+CoreDataProperties.swift in Sources */,
+				03D2CC0A239553610057FCD4 /* ScenarioModel.swift in Sources */,
 				030F7CED2375CC070095B8D7 /* ExtensionDelegate.swift in Sources */,
+				03D2CC0E2395573C0057FCD4 /* Prototype0.swift in Sources */,
+				03CECCB1239A85C200F4857A /* OutdoorValue.swift in Sources */,
 				030F7CF12375CC070095B8D7 /* NotificationView.swift in Sources */,
 				030F7CF32375CC070095B8D7 /* ComplicationController.swift in Sources */,
+				03E4D5E8239E8E6900721768 /* app-state.xcdatamodeld in Sources */,
+				03CECCAF2398626800F4857A /* WedgeView.swift in Sources */,
+				03E4D5F2239EE94800721768 /* UserReaction.swift in Sources */,
+				03E4D5EE239EE52200721768 /* CloudkitHelper.swift in Sources */,
+				0397C829239696B9006F0047 /* ClockIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +551,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Hilo-iwatch-1 WatchKit Extension/Hilo-iwatch-1 WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Hilo-iwatch-1 WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = C428CUJN6B;
@@ -451,6 +576,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Hilo-iwatch-1 WatchKit Extension/Hilo-iwatch-1 WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Hilo-iwatch-1 WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = C428CUJN6B;
@@ -575,6 +701,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		03E4D5E6239E8E6900721768 /* app-state.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				03E4D5E7239E8E6900721768 /* app-state.xcdatamodel */,
+			);
+			currentVersion = 03E4D5E7239E8E6900721768 /* app-state.xcdatamodel */;
+			path = "app-state.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 030F7CCA2375CC050095B8D7 /* Project object */;
 }

@@ -7,11 +7,19 @@
 //
 
 import WatchKit
+import SwiftUI
+import CoreData
+import CloudKit
+
+
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
+//    var sharedRing = Ring()
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        
     }
 
     func applicationDidBecomeActive() {

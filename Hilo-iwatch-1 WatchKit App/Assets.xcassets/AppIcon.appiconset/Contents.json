@@ -17,6 +17,7 @@
     {
       "size" : "29x29",
       "idiom" : "watch",
+      "filename" : "logo58px.png",
       "role" : "companionSettings",
       "scale" : "2x"
     },
@@ -43,6 +44,7 @@
     {
       "size" : "50x50",
       "idiom" : "watch",
+      "filename" : "logo100px.png",
       "scale" : "2x",
       "role" : "appLauncher",
       "subtype" : "44mm"
@@ -64,6 +66,7 @@
     {
       "size" : "108x108",
       "idiom" : "watch",
+      "filename" : "logo216px.png",
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "44mm"

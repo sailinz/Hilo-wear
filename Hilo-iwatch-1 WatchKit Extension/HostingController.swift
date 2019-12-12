@@ -11,7 +11,10 @@ import Foundation
 import SwiftUI
 
 class HostingController: WKHostingController<ContentView> {
+    
+    var sharedRing: Ring!
+    
     override var body: ContentView {
-        return ContentView()
+        return ContentView(model: ScenarioModel())
     }
 }
