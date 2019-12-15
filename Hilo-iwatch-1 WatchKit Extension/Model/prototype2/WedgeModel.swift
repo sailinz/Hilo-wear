@@ -13,6 +13,8 @@ import Combine
 //class Ring: ObservableObject {
 class Ring: ObservableObject {
     /// A single wedge within a chart ring.
+    
+    let scaleFactor = 0.95 //to adjust the wedge length
     struct Wedge: Equatable {
         /// The wedge's width, as an angle in radians.
         var width: Double
@@ -99,12 +101,41 @@ class Ring: ObservableObject {
     }
     
     /// When user react to the interface, the air quality change to positive (green)
-    func updateWedgeColor(){
+    func updateWedgesColor(){
         for id in wedgeIDs {
-            wedges[id]!.depth = Double.random(in: 0.7 ..< 0.95) * 0.95
+            wedges[id]!.depth = Double.random(in: 0.7 ..< 0.95) * scaleFactor
             wedges[id]!.hue = 0.37 //(green)
             wedges[id]!.isRiskIndicator = false // no risk
         }
+    }
+    
+    func updateWedgeColor(id: Int, co2Value: Int, certainty: Double){
+        
+        
+        wedges[id]!.depth = certainty * scaleFactor//Double.random(in: 0.7 ..< 0.95) * 0.95
+        
+        if(co2Value < 600){
+            wedges[id]!.hue = 0.37 //(green)
+        }else if(co2Value >= 600 && co2Value < 1000){
+            wedges[id]!.hue = 0.16 //(yellow)
+        }else{
+            wedges[id]!.hue = 0.0 //(red)
+        }
+        
+        if(id >= 1){
+            if(wedges[id - 1]!.hue > 0.0){
+                wedges[id]!.isRiskIndicator = false // no risk
+            }else{
+                wedges[id]!.isRiskIndicator = true // no risk
+            }
+        }
+        
+
+//        if(certainty <= 0.95){
+//            wedges[id]!.isRiskIndicator = false // no risk
+//        }else{
+//            wedges[id]!.isRiskIndicator = true // no risk
+//        }
     }
     
     func randomizeWedgeDepth(){

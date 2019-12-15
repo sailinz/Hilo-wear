@@ -55,5 +55,33 @@ struct CloudKitHelper {
         CKContainer.default().publicCloudDatabase.add(operation)
     }
     
+    // MARK: - saving to CloudKit
+    // log the active time
+    static func save(completion: @escaping (Result<Date, Error>) -> ()) {
+        
+        let itemRecord = CKRecord(recordType: "AppActiveTimeLog")
+        itemRecord["AppActiveTimeLog"] = Date() as CKRecordValue
+        
+        CKContainer.default().publicCloudDatabase.save(itemRecord) { (record, err) in
+            DispatchQueue.main.async {
+                if let err = err {
+                    completion(.failure(err))
+                    return
+                }
+                guard let record = record else {
+                    completion(.failure(CloudKitHelperError.recordFailure))
+                    return
+                }
+
+                guard let timestamp = record["AppActiveTimeLog"] as? Date else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                completion(.success(timestamp))
+            }
+        }
+    }
+    
 }
 

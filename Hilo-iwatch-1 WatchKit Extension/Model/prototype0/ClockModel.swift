@@ -16,6 +16,6 @@ struct ClockModel {
     var minutes : Int
     
     init() {
-        minutes = 12 //hardcoded: this is a a walkaround as of now because the initialization couldn't be passed through
+        minutes = 19 ///hardcoded: this is a a walkaround as of now because the initialization couldn't be passed through
     }
 }

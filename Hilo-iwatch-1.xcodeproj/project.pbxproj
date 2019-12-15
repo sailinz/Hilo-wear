@@ -30,6 +30,8 @@
 		03CECCB1239A85C200F4857A /* OutdoorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CECCB0239A85C200F4857A /* OutdoorValue.swift */; };
 		03D2CC0A239553610057FCD4 /* ScenarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D2CC09239553610057FCD4 /* ScenarioModel.swift */; };
 		03D2CC0E2395573C0057FCD4 /* Prototype0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D2CC0D2395573C0057FCD4 /* Prototype0.swift */; };
+		03DA9D9823A6336D00DBA869 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CECCB8239E7D2400F4857A /* HealthKit.framework */; };
+		03DA9D9A23A6456400DBA869 /* WorkoutDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA9D9923A6456400DBA869 /* WorkoutDataStore.swift */; };
 		03E4D5E2239E89CC00721768 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D5E1239E89CC00721768 /* CloudKit.framework */; };
 		03E4D5E4239E8AE300721768 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D5E3239E8AE300721768 /* CoreData.framework */; };
 		03E4D5E8239E8E6900721768 /* app-state.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D5E6239E8E6900721768 /* app-state.xcdatamodeld */; };
@@ -111,6 +113,7 @@
 		03CECCB8239E7D2400F4857A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		03D2CC09239553610057FCD4 /* ScenarioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioModel.swift; sourceTree = "<group>"; };
 		03D2CC0D2395573C0057FCD4 /* Prototype0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prototype0.swift; sourceTree = "<group>"; };
+		03DA9D9923A6456400DBA869 /* WorkoutDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataStore.swift; sourceTree = "<group>"; };
 		03E4D5E1239E89CC00721768 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		03E4D5E3239E8AE300721768 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		03E4D5E7239E8E6900721768 /* app-state.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "app-state.xcdatamodel"; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DA9D9823A6336D00DBA869 /* HealthKit.framework in Frameworks */,
 				03E4D5E4239E8AE300721768 /* CoreData.framework in Frameworks */,
 				03E4D5E2239E89CC00721768 /* CloudKit.framework in Frameworks */,
 			);
@@ -251,6 +255,7 @@
 				03E4D5E6239E8E6900721768 /* app-state.xcdatamodeld */,
 				03E4D5ED239EE52200721768 /* CloudkitHelper.swift */,
 				03E4D5F1239EE94800721768 /* UserReaction.swift */,
+				03DA9D9923A6456400DBA869 /* WorkoutDataStore.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				03E4D5E8239E8E6900721768 /* app-state.xcdatamodeld in Sources */,
 				03CECCAF2398626800F4857A /* WedgeView.swift in Sources */,
 				03E4D5F2239EE94800721768 /* UserReaction.swift in Sources */,
+				03DA9D9A23A6456400DBA869 /* WorkoutDataStore.swift in Sources */,
 				03E4D5EE239EE52200721768 /* CloudkitHelper.swift in Sources */,
 				0397C829239696B9006F0047 /* ClockIndicator.swift in Sources */,
 			);

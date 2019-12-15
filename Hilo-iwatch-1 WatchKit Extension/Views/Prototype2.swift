@@ -11,23 +11,31 @@ import WatchKit
 
 struct Prototype2: View {
     let topic: Topic
-    // -- for experiment only: hardcoded the moment of risk and prediction period
-    @State public var nbPointMarks: Int = 20 // define number of prediction minutes
-    @State public var riskyMinute: Int = 12
-    @State private var showRiskIndicator: Bool = true
+    /// -- for experiment only: hardcoded the moment of risk and prediction period
+    @State public var nbPointMarks: Int = 20 /// define number of prediction minutes
+    @State public var riskyMinute: Int = 19
+    let ongoingPredTime = 2
+    @State private var showRiskIndicator: Bool = false
     @State private var isP2Notified:Bool = false
     @State private var isStayAlarmed:Bool = false
-    
 
     @State(initialValue: ClockModel())
     private var time: ClockModel
+    @State(initialValue: WorkoutDataStore())
+    private var backgroundSession: WorkoutDataStore
 
     
     private let hourPointerBaseRadius: CGFloat = 0.1
     private let secondPointerBaseRadius: CGFloat = 0.05
     @State private var isReacted = false
-    @State private var isFirstLoad = true
+    @State private var isFirstLoad = true /// the wedges need to be created before the view. this is to handle this situation
     @State private var startTime: Date = Date()
+    
+    @State private var currentCO2Text: Int = 451
+    @State private var currentCO2TextColor: Color = .green
+    
+    let currentCO2 = [430, 440, 445, 450, 460, 470, 480, 500, 560, 570, 580, 590, 600, 800, 860, 870, 900, 934, 1025, 1055, 1085, 1104, 1140, 1150, 1160, 1146, 1143, 1150, 1146, 1160, 1025, 1055, 1085, 1104, 1140, 1150, 1160, 1146, 1143, 1143]
+    let certainty = [0.93, 0.94, 0.92, 0.93, 0.90, 0.89, 0.87, 0.86, 0.84, 0.83, 0.82, 0.81, 0.80, 0.79, 0.78, 0.77, 0.75, 0.74, 0.76, 0.75]
     
     /// The description of the ring of wedges.
     @State(initialValue: Ring())
@@ -42,27 +50,29 @@ struct Prototype2: View {
                     WedgeView(wedge: self.ring.wedges[wedgeID]!)
 
                 }
-                
-                ///for debugging purpose
-//                VStack{
-//                    Text(String(self.ring.wedgeIDs.min()!))
-////                    ForEach(ring.wedgeIDs, id: \.self) { wedgeID in
-////                        Text(String(wedgeID))
-////                        .font(Font.custom("Helvetica Bold", size: 6))
-////                    }
-//                }
-
             }
-            
-            
             
             OutdoorValueView()
                 .onAppear(){
                     if(self.isFirstLoad){
                         self.initWedge()
                         self.initStartDateTime()
+                        self.isFirstLoad = false
                     }
                 }
+
+                ZStack(){
+                    Text(String(self.currentCO2Text))
+                        .font(Font.custom("Helvetica Bold", size: 14))
+                        .foregroundColor(self.currentCO2TextColor)
+                    Text("ppm")
+                        .font(Font.custom("Helvetica", size: 6))
+                        .foregroundColor(self.currentCO2TextColor)
+                        .offset(y: 8)
+                        
+                }
+                .offset(y: 80)
+            
         }
         .padding()
         .aspectRatio(1, contentMode: .fit)
@@ -70,53 +80,80 @@ struct Prototype2: View {
             Timer.scheduledTimer(withTimeInterval: 1 , repeats: true) { timer in
                 if(self.time.minutes > self.riskyMinute - self.nbPointMarks)
                 {
-                    
-//                    self.time.minutes -= 1
-//                    self.ring.removeWedge(id: self.ring.wedgeIDs.min()!)
-                    
+                    /// this is to handle the situation that the watch goes to sleep now and then
                     let minuteElapsed = Calendar.current
                         .dateComponents([.minute], from: self.startTime, to: Date())
                         .minute!
-                    let current_minute = self.time.minutes
+                    let current_minute = self.time.minutes ///store the previous value before assign new value to it
                     self.time.minutes = self.riskyMinute - minuteElapsed
 
-                    if(current_minute - self.time.minutes  > 0){
-                        for n in self.ring.wedgeIDs.min()!...(self.ring.wedgeIDs.min()! + current_minute - self.time.minutes - 1){
-                            self.ring.removeWedge(id: n)
+                    /// update the prediction every minute
+                    if( (current_minute - self.time.minutes) > 0 && minuteElapsed >= self.ongoingPredTime){
+//                        for n in self.ring.wedgeIDs.min()!...(self.ring.wedgeIDs.min()! + current_minute - self.time.minutes - 1){
+//                            self.ring.removeWedge(id: n)
+//                        }
+                        
+                        self.updateRing(minuteElapsed: minuteElapsed)
+                        self.showRiskIndicator = true
+                        
+                        /// notify user when the first risk is detected
+                        if(minuteElapsed == self.ongoingPredTime){
+                            WKInterfaceDevice.current().play(.failure)
                         }
+                        
                     }
                     
                     
-                    self.ring.randomizeWedgeDepth()
+//                    self.ring.randomizeWedgeDepth()
                     
                     CloudKitHelper.fetch { (result) in
                         switch result {
                         case .success(let newItem):
                             if(newItem.p2UserReaction != 0){ // user reacts to the interface 0=false
                                 self.isP2Notified = true
-                                self.ring.updateWedgeColor()
+//                                self.ring.updateWedgesColor()
+                                self.initWedge()
                                 self.showRiskIndicator = false
                                 self.isReacted = true
+                                self.currentCO2Text = Int.random(in: 450 ..< 470)
+                            }else{
+                                self.currentCO2Text = Int.random(in: (self.currentCO2[self.nbPointMarks - self.time.minutes - 1]-10) ..< (self.currentCO2[self.nbPointMarks - self.time.minutes - 1]+10))
+                            }
+                            
+                            /// update text color according to current CO2 level
+                            if(self.currentCO2Text < 600){
+                                self.currentCO2TextColor = .green
+                            }else if(self.currentCO2Text >= 600 && self.currentCO2Text < 1000){
+                                self.currentCO2TextColor = .yellow
+                            }else{
+                                self.currentCO2TextColor = .red
                             }
                         case .failure(let err):
                             print(err.localizedDescription)
                         }
                     }
                     
-                    // if there's no action (like opening a window) from the user, give them an alarm
+                    /// if there's no action (like opening a window) from the user, give them another alarm
                     if(self.time.minutes == 0){
                         if(self.isP2Notified != true){
-                            WKInterfaceDevice.current().play(.stop)
+                            WKInterfaceDevice.current().play(.failure)
                             self.isP2Notified = true
                         }
                     }
                     
+                    /// keep the mark at position 0 red
                     if(self.time.minutes < 0){
                         self.showRiskIndicator = false
                         if(!self.isReacted){
                             self.isStayAlarmed = true
                         }
                     }
+                    
+                    /// enable vibration when the app enters background mode
+                    if(minuteElapsed == self.nbPointMarks){
+                        self.backgroundSession.stopWorkoutSession()
+                    }
+                
                 }
             }
         }
@@ -125,26 +162,61 @@ struct Prototype2: View {
     func initWedge(){
         self.ring.reset()
         
-        // pre-defined wedges for experiment.
-        let risk = [0.37, 0.37, 0.37, 0.16, 0.37, 0.37, 0.37, 0.16, 0.16, 0.16, 0.0, 0.0, 0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0 ]
-        let certainty = [0.6, 0.7, 0.7, 0.2, 0.5, 0.6, 0.7, 0.7, 0.8, 0.7, 0.75, 0.97, 0.8, 0.7, 0.67, 0.76, 0.68, 0.70, 0.69, 0.78 ]
-        
         for n in 0..<nbPointMarks{
-            var newWedge = Ring.Wedge(
-                    width: 1,
-                    depth: certainty[n] * 0.95, // -> certainty
-                    hue: risk[n] // -> risk
+
+                let newWedge = Ring.Wedge(
+                width: 1,
+                depth: self.certainty[n] * 0.95, // -> certainty
+                hue: 0.37 // -> risk: green
             )
-            if(n == riskyMinute - 1){
-                newWedge.isRiskIndicator = true
-            }
             self.ring.addWedge(newWedge)
         }
+    }
+    
+    
+    
+    func updateRing(minuteElapsed: Int){
+        self.ring.reset()
+                
+        var wedgeHue: Double
+        var isRiskIndicator: Bool = false
+
+        
+        // pre-defined wedges for experiment.
+        if(self.nbPointMarks - 1 + minuteElapsed < self.currentCO2.count){
+            for n in 0 ... self.nbPointMarks - 1 {
+                
+                if(self.currentCO2[n + minuteElapsed] < 600){
+                    wedgeHue = 0.37
+                }else if(self.currentCO2[n + minuteElapsed] >= 600 && self.currentCO2[n + minuteElapsed] < 1000){
+                    wedgeHue = 0.16
+                }else{
+                    wedgeHue = 0.0
+                }
+                
+                if(minuteElapsed > 0 && self.currentCO2[n + minuteElapsed - 1] < 1000){ /// change state from unrisky to risky
+                    isRiskIndicator = true
+                }else{
+                    isRiskIndicator = false
+                }
+                
+                let newWedge = Ring.Wedge(
+                    width: 1,
+                    depth: Double.random(in: (self.certainty[n] - 0.02) ..< (self.certainty[n] + 0.02)) * 0.95, /// -> certainty
+                    hue: wedgeHue, /// -> risk: green
+                    isRiskIndicator: isRiskIndicator
+                )
+                self.ring.addWedge(newWedge)
+            }
+        }
+            
         self.isFirstLoad = false
     }
     
     func initStartDateTime(){
         self.startTime = Date()
+        self.backgroundSession.startWorkoutSession()
+        
     }
 }
 

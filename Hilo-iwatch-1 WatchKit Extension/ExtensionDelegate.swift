@@ -24,6 +24,16 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidBecomeActive() {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        /// log the moment when user look at the screen
+        CloudKitHelper.save() { (result) in
+            switch result {
+            case .success(_):
+                print("Successfully added item")
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
     }
 
     func applicationWillResignActive() {

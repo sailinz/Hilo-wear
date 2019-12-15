@@ -47,10 +47,13 @@
 		<string>com.apple.watchkit</string>
 	</dict>
 	<key>UIBackgroundModes</key>
-	<array/>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>WKBackgroundModes</key>
 	<array>
 		<string>self-care</string>
+		<string>workout-processing</string>
 	</array>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
